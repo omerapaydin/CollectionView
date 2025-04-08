@@ -16,19 +16,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tasarim:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        
+        let tasarim = UICollectionViewFlowLayout()
         let genislik = self.collectionView.frame.size.width
-        
+
         tasarim.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        
-        tasarim.itemSize = CGSize(width: (genislik-30)/3, height: (genislik-30)/3)
-        
-        tasarim.minimumInteritemSpacing = 5
-        tasarim.minimumLineSpacing = 5
-        
+        tasarim.minimumInteritemSpacing = 10
+        tasarim.minimumLineSpacing = 10
+
+        let hucreGenisligi = (genislik - 30) / 2
+        tasarim.itemSize = CGSize(width: hucreGenisligi, height: hucreGenisligi)
+
         collectionView.collectionViewLayout = tasarim
-        
         
         
         let y1 = Yemekler(yemekId: 1, yemekAdi: "Ayran", yemekResimAdi: "ayran", yemekFiyat: 3.0)
