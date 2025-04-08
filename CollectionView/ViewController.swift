@@ -16,6 +16,20 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tasarim:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        
+        let genislik = self.collectionView.frame.size.width
+        
+        tasarim.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
+        tasarim.itemSize = CGSize(width: (genislik-30)/3, height: (genislik-30)/3)
+        
+        tasarim.minimumInteritemSpacing = 5
+        tasarim.minimumLineSpacing = 5
+        
+        collectionView.collectionViewLayout = tasarim
+        
+        
         
         let y1 = Yemekler(yemekId: 1, yemekAdi: "Ayran", yemekResimAdi: "ayran", yemekFiyat: 3.0)
         let y2 = Yemekler(yemekId: 2, yemekAdi: "Baklava", yemekResimAdi: "baklava", yemekFiyat: 20.0)
@@ -64,6 +78,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         cell.labelYemek.text = gelenYemek.yemekAdi
         
         cell.imageYemek.image = UIImage(named: gelenYemek.yemekResimAdi!)
+        
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 0.5
+        
         return cell
     }
 
